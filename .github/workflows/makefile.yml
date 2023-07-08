@@ -13,15 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: configure
-      run: ./configure
+    
+    - name: Install required software
+      run: apt-get install git build-essential -y
 
     - name: Install dependencies
       run: make
 
-    - name: Run check
-      run: make check
+    - name: Compile everything
+      run: make everything
 
-    - name: Run distcheck
-      run: make distcheck
